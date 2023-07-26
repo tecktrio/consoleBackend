@@ -1,1 +1,1 @@
-core_url = 'http://127.0.0.1:2000'
+core_url = 'http://3.95.154.248/core'
