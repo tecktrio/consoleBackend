@@ -1,5 +1,5 @@
 from django.urls import path
-from console.views import signin_u,signin_p,signup_,signup__,signup___,validate_user,otp_verification
+from console.views import signin_u,signin_p,signup_,signup__,signup___,validate_user,handleuserproducts,otp_verification,products
 
 urlpatterns = [
     path('signin_u',signin_u.as_view()),
@@ -9,5 +9,7 @@ urlpatterns = [
     path('signup___',signup___.as_view()),
     path('otp_verification',otp_verification.as_view()),
     path('validate_user',validate_user.as_view()),
-    
+    path('products',products.as_view()),
+    path('handleuserproducts/<str:Email>',handleuserproducts.as_view()),
+    path('handleuserproducts',handleuserproducts.as_view()),
 ]
