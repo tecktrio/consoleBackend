@@ -77,6 +77,13 @@ class signup__(APIView):
         if len(lastname)<1:
             return JsonResponse({'status':'failed','error':'Last Name cannot be null'})
         return JsonResponse({'status':'success'})    
+    
+class signup____(APIView):
+    def get(self,request):
+        return JsonResponse( {'status':'Get method not allowed at this endpoint'})
+    def post(self,request):
+        firstname = request.data['otp']
+        return JsonResponse({'status':'success'})    
 '''
 Responsible for verifying password during signup
 '''    
