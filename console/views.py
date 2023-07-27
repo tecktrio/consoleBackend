@@ -82,8 +82,24 @@ class signup____(APIView):
     def get(self,request):
         return JsonResponse( {'status':'Get method not allowed at this endpoint'})
     def post(self,request):
-        firstname = request.data['otp']
-        return JsonResponse({'status':'success'})    
+        Otp = request.data['Otp']
+        First_Name = request.data['First_Name']
+        Last_Name = request.data['Last_Name']
+        Email = request.data['Email']
+        Country_Code = request.data['Country_Code']
+        Contact_Number = request.data['Contact_Number']
+        Password = request.data['Password']
+        data = {
+            'Email':Email,
+            'Password':Password,
+            'First_Name':First_Name,
+            'Last_Name':Last_Name,
+            'Country_Code':Country_Code,
+            'Contact_Number':Contact_Number,
+        }
+        response = requests.post(f'{constants.core_url}/Users/Register?key=widecitymakesitsimple',data=data)
+        if response.json()['status'] == 'success':
+            return JsonResponse({'status':'success'})    
 '''
 Responsible for verifying password during signup
 '''    
