@@ -1,1 +1,1 @@
-core_url = 'https://console.widecity.in/core'
+core_url = 'https://core.widecity.in/core'
