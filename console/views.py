@@ -99,7 +99,9 @@ class signup____(APIView):
         }
         response = requests.post(f'{constants.core_url}/Users/Register?key=widecitymakesitsimple',data=data)
         if response.json()['status'] == 'success':
-            return JsonResponse({'status':'success'})    
+            return JsonResponse({'status':'success'})   
+        return JsonResponse({'status':'failed'})   
+         
 '''
 Responsible for verifying password during signup
 '''    
