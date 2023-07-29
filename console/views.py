@@ -191,3 +191,20 @@ class handleuserproducts(APIView):
         return JsonResponse({'status':'failed','error':response.json()['error']})             
 
         # return JsonResponse({'status':'post method not allowed in this endpoint'})
+        
+class handleuser(APIView):
+    def get(self,request,Email):
+        response = requests.get(f'{constants.core_url}/Users/GetUser/{Email}?key=widecitymakesitsimple')
+        if  response.json()['status'] == 'success':
+            print(response.json()['data'])
+            # return JsonResponse({'status':'success','data':response.json()['data']})
+        return JsonResponse({'status':'failed','error':response.json()['error']})             
+
+        # data = {
+        #     'First_Name':'Amal',
+        #     'Last_Name':'Benny',
+        #     'Contact':'+91 9946658045',
+        #     'Email':'amal1@gmail.com'
+        # }
+        
+        # return JsonResponse({'status':'success','data':data})
