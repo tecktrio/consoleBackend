@@ -197,7 +197,7 @@ class handleuser(APIView):
         response = requests.get(f'{constants.core_url}/Users/GetUser/{Email}?key=widecitymakesitsimple')
         if  response.json()['status'] == 'success':
             print(response.json()['data'])
-            # return JsonResponse({'status':'success','data':response.json()['data']})
+            return JsonResponse({'status':'success','data':response.json()['data']})
         return JsonResponse({'status':'failed','error':response.json()['error']})             
 
         # data = {
