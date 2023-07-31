@@ -161,7 +161,7 @@ class handleuserproducts(APIView):
         print(response.json()['status'])
         if response.json()['status'] == 'success':
             return JsonResponse({'status':'success','data':response.json()['data']})
-        return JsonResponse({'status':'failed','error':'Email id exist','data':{[]}})             
+        return JsonResponse({'status':'failed','error':'Email id exist'})             
     def put(self,request):
 
         UserEmail = request.data['UserEmail']
