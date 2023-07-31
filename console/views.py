@@ -159,9 +159,9 @@ class handleuserproducts(APIView):
     def get(self,request,Email):
         response = requests.get(f'{constants.core_url}/Products/HandleUserProducts/{Email}?key=widecitymakesitsimple')
         print(response.json()['status'])
-        if not response.json()['status'] == 'success':
-            return JsonResponse({'status':'failed','error':'Email id exist','data':{[]}})             
-        return JsonResponse({'status':'success','data':response.json()['data']})
+        if response.json()['status'] == 'success':
+            return JsonResponse({'status':'success','data':response.json()['data']})
+        return JsonResponse({'status':'failed','error':'Email id exist','data':{[]}})             
     def put(self,request):
 
         UserEmail = request.data['UserEmail']
